@@ -1,3 +1,186 @@
-p {
-    color: aqua;
+
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.section-1 {
+    background-color: #ABE3FF;
+    height: 98.681vw;
+    width: 100%;
+position: relative;
+
+    font-family: "Radiotechnika";
+    background-size: contain;
+        /* Поддержка размеров фона */
+        background-repeat: no-repeat;
+        overflow: hidden;
+}
+.clouds{
+    background-image: url(../images/clouds.svg);
+    width: 100%;
+    height: 47.917vw;
+    background-size: contain;
+        /* Поддержка размеров фона */
+        background-repeat: no-repeat;
+        top: 18.542vw;
+        position: absolute;
+}
+.metal{
+background-image: url(../images/metal.svg);
+    width: 100%;
+    height: 88.194vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+   
+    position: absolute;
+    top: 12vw;
+}
+.metaltxt{
+  color: white;
+ 
+  font-size: 5.833vw;
+  position: absolute;
+  top: 10.278vw;
+  left: 17.569vw;
+ }
+ .sun{background-image: url(../images/sun1.png);
+    width: 53.889vw;
+    height:53.889vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+   right: -1vw;
+   top: 0vw;
+    position: absolute;
+}
+.section-2 {
+    background-color: #444444;
+    height: 65.927vw;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.screens{
+    background-image: url(../images/screens.svg);
+        width: 100vw;
+        height: 32.153vw;
+        background-size: contain;
+        /* Поддержка размеров фона */
+        background-repeat: no-repeat;
+       
+        top: 11.944vw;
+        position: absolute;
+
+}
+.slider {
+    width: 15vw;
+height: 1.528vw;
+background-color: #4B4B4B;    
+background-size: contain;
+        /* Поддержка размеров фона */
+        background-repeat: no-repeat;
+    
+        top: 11.944vw;
+        position: absolute;
+        border-radius: 1.033vw;
+        text-align: center;
+        top: 66.875vw   ;
+        left: 7.847vw;
+}
+.thumb {
+    width: 1.389vw;
+    height: 3.75vw;
+    background-color: #1AE4FF;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+top: -1vw;
+  
+    position: absolute;
+    border-radius: 0.131vw;
+}
+.thumb1 {
+    width: 1.389vw;
+    height: 3.75vw;
+    background-color: #1AE4FF;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+    top: -1vw;
+
+    position: absolute;
+    border-radius: 0.131vw;
+}
+.slider1 {
+    width: 15vw;
+    height: 1.528vw;
+    background-color: #4B4B4B;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+   
+    position: absolute;
+    border-radius: 1.033vw;
+    
+    top: 66.875vw;
+    right: 7.847vw;
+}
+.thumb2 {
+    width: 1.389vw;
+    height: 3.75vw;
+    background-color: #1AE4FF;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+    top: -1vw;
+
+    position: absolute;
+    border-radius: 0.131vw;
+}
+
+.slider2 {
+    width: 15vw;
+    height: 1.528vw;
+    background-color: #4B4B4B;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+
+    position: absolute;
+    border-radius: 1.033vw;
+
+   top: 53.389vw;
+    left: 23.611vw;
+transform: rotate(90deg);
+}
+.screen1 {
+    background-color: black;
+    border: #444444;
+    border-width: 1.813vw;
+    width: 40vw;
+    height: 40vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 12vw;
+    overflow: hidden;
+}
+.circle {
+    background-color: rgb(255, 0, 0);
+    border: #444444;
+    border-width: 1.813vw;
+    width: 5vw;
+    height: 5vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 12vw;
 }
