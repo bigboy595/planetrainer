@@ -1,120 +1,108 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
 
-console.log('hey niga')
-  let thumb = slider.querySelector('.thumb');
-  
+const slider = document.getElementById('slider');
+const value1 = document.getElementById('value1');
+const value2 = document.getElementById('value2');
+const value3 = document.getElementById('value3');
+const value4 = document.getElementById('value4');
 
-    thumb.onmousedown = function(event) {
-      event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+slider.addEventListener('input', function() {
+    const sliderValue = parseInt(this.value, 10);
 
-      let shiftX = event.clientX - thumb.getBoundingClientRect().left;
-      // shiftY здесь не нужен, слайдер двигается только по горизонтали
+    // Логика для увеличения цифр
+    value1.textContent = sliderValue; // Первая цифра равна значению ползунка
+    value2.textContent = sliderValue * 2; // Вторая цифра в 2 раза больше
+    value3.textContent = sliderValue + 5; // Третья цифра на 10 больше
+    value4.textContent = sliderValue * 0.5; // Четвертая цифра в половину от значения
+});
 
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
 
-      function onMouseMove(event) {
-        let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;
 
-        // курсор вышел из слайдера => оставить бегунок в его границах.
-        if (newLeft < 0) {
-          newLeft = 0;
-        }
-        let rightEdge = slider.offsetWidth - thumb.offsetWidth;
-        if (newLeft > rightEdge) {
-          newLeft = rightEdge;
-        }
 
-        thumb.style.left = newLeft + 'px';
-      }
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider'); // Контейнер ползунка
+    const thumb = document.querySelector('.thumb');   // Бегунок
+    const inputRange = document.getElementById('slider'); // input range
 
-      function onMouseUp() {
-        document.removeEventListener('mouseup', onMouseUp);
-        document.removeEventListener('mousemove', onMouseMove);
-      }
+    // Обработчик для input range
+    inputRange.addEventListener('input', function () {
+        const value = this.value;
+        const min = this.min;
+        const max = this.max;
 
-    };
+        // Вычисляем положение бегунка в процентах
+        const percent = ((value - min) / (max - min)) * 100;
 
-    thumb.ondragstart = function() {
-      return false;
-    };
+        // Обновляем положение бегунка
+        thumb.style.left = `calc(${percent}% - ${thumb.offsetWidth / 2}px)`;
+    });
 
-    let thumb1   = slider1.querySelector('.thumb1');
+    // Обработчик для перемещения бегунка мышью
+    thumb.addEventListener('mousedown', function (event) {
+        event.preventDefault(); // Предотвращаем выделение текста
 
-    thumb1.onmousedown = function(event) {
-      event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+        const sliderRect = slider.getBoundingClientRect();
+        const thumbWidth = thumb.offsetWidth;
 
-      let shiftX = event.clientX - thumb1.getBoundingClientRect().left;
-      // shiftY здесь не нужен, слайдер двигается только по горизонтали
+        // Функция для перемещения бегунка
+        function onMouseMove(event) {
+            let newLeft = event.clientX - sliderRect.left - thumbWidth / 2;
 
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
+            // Ограничиваем движение бегунка в пределах ползунка
+            if (newLeft < 0) newLeft = 0;
+            if (newLeft > sliderRect.width - thumbWidth) newLeft = sliderRect.width - thumbWidth;
 
-      function onMouseMove(event) {
-        let newLeft = event.clientX - shiftX - slider1.getBoundingClientRect().left;
+            // Обновляем положение бегунка
+            thumb.style.left = `${newLeft}px`;
 
-        // курсор вышел из слайдера => оставить бегунок в его границах.
-        if (newLeft < 0) {
-          newLeft = 0;
-        }
-        let rightEdge = slider1.offsetWidth - thumb1.offsetWidth;
-        if (newLeft > rightEdge) {
-          newLeft = rightEdge;
+            // Обновляем значение input range
+            const percent = (newLeft / (sliderRect.width - thumbWidth)) * 100;
+            inputRange.value = Math.round((percent / 100) * (inputRange.max - inputRange.min)) + Number(inputRange.min);
         }
 
-        thumb1.style.left = newLeft + 'px';
-      }
+        // Функция для завершения перемещения
+        function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
 
-      function onMouseUp() {
-        document.removeEventListener('mouseup', onMouseUp);
-        document.removeEventListener('mousemove', onMouseMove);
-      }
+        // Добавляем обработчики событий
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
 
-    };
+    // Предотвращаем стандартное поведение перетаскивания
+    thumb.addEventListener('dragstart', function () {
+        return false;
+    });
+});
 
-    thumb1.ondragstart = function() {
-      return false;
-    };
+// Ждем, пока загрузится DOM
+        document.addEventListener('DOMContentLoaded', function () {
+            // Находим кнопку и div
+            const button = document.getElementById('colorButton');
+            const targetDiv = document.getElementById('targetDiv');
 
+            // Проверяем, что элементы найдены
+            if (!button || !targetDiv) {
+                console.error('Не удалось найти кнопку или div');
+                return;
+            }
 
-    
-   let thumb2 = slider2.querySelector('.thumb2');
-
-thumb2.onmousedown = function(event) {
-  event.preventDefault(); // предотвратить запуск выделения (действие браузера)
-
-  let shiftX = event.clientX - thumb2.getBoundingClientRect().left;
-  // shiftY здесь не нужен, слайдер двигается только по горизонтали
-
-  document.addEventListener('mousemove', onMouseMove);
-  document.addEventListener('mouseup', onMouseUp);
-
-  function onMouseMove(event) {
-    let newLeft = event.clientX - shiftX - slider2.getBoundingClientRect().left;
-
-    // курсор вышел из слайдера => оставить бегунок в его границах.
-    if (newLeft < 0) {
-      newLeft = 0;
-    }
-    let rightEdge = slider2.offsetWidth - thumb2.offsetWidth;
-    if (newLeft > rightEdge) {
-      newLeft = rightEdge;
-    }
-
-    thumb2.style.left = newLeft + 'px';
-  }
-
-  function onMouseUp() {
-    document.removeEventListener('mouseup', onMouseUp);
-    document.removeEventListener('mousemove', onMouseMove);
-  }
-};
-
-thumb2.ondragstart = function() {
-  return false;
-};
+            // Обработчик клика по кнопке
+            button.addEventListener('click', function () {
+                // Переключаем класс у div
+                if (targetDiv.classList.contains('default-color')) {
+                    targetDiv.classList.remove('default-color');
+                    targetDiv.classList.add('new-color');
+                } else {
+                    targetDiv.classList.remove('new-color');
+                    targetDiv.classList.add('default-color');
+                }
+            });
+        });
 
 
-      
- })
+
+})
