@@ -597,6 +597,163 @@ background-size: contain;
     background-image: url(../images/screenfornumbers.svg);
 
 }
+.spb{
+color: white;
+font-family: "Inter-ExtraBold";
+    font-size: 4vw;
+    position: absolute;
+   top: 3.472vw;
+left: 9.097vw;
+}
+.msk {
+    color: white;
+    font-family: "Inter-ExtraBold";
+    font-size: 4vw;
+    position: absolute;
+    top: 3.472vw;
+    left: 42.5vw;
+}
+.saratov {
+    color: white;
+font-family: "Inter-ExtraBold";
+    font-size: 4vw;
+    position: absolute;
+    top: 3.472vw;
+    left: 75.8vw;
+}
+.t16 {
+    color: white;
+    font-family: "Inter-SemiBold";
+    font-size: 1.7vw;
+    position: absolute;
+    top: 9.3vw;
+    left: 10.5vw;
+}
+.t17 {
+    color: rgb(47, 47, 47);
+    font-family: "Inter-SemiBold";
+    font-size: 1.7vw;
+    position: absolute;
+    top: 9.3vw;
+    left: 45vw;
+}
+.t18 {
+    color: rgb(47, 47, 47);
+    font-family: "Inter-SemiBold";
+    font-size: 1.7vw;
+    position: absolute;
+    top: 9.3vw;
+    left: 80vw;
+}
+.baggreen{
+    background-size: contain;
+        /* Поддержка размеров фона */
+        background-repeat: no-repeat;
+    
+        position: absolute;
+        top: 45vw;
+        left: 31vw;
+        height: 15.8vw;
+        width: 11.111vw;
+        background-image: url(../images/baggreen.svg);
+}
+.bagblack {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
 
+    position: absolute;
+    top: 45vw;
+    left: 2vw;
+    height: 15.8vw;
+    width: 11.111vw;
+    background-image: url(../images/bagb.svg);
+}
+.bagblue {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
 
+    position: absolute;
+    top: 45vw;
+    left: 15vw;
+    height: 15.8vw;
+    width: 11.111vw;
+    background-image: url(../images/bagblue.svg);
+}
+.baggreen1 {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
 
+    position: absolute;
+    top: 45vw;
+    left: 67vw;
+    height: 15.8vw;
+    width: 11.111vw;
+    background-image: url(../images/baggreen.svg);
+}
+
+.bagblack1 {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 45vw;
+    left: 50vw;
+    height: 15.8vw;
+    width: 11.111vw;
+    background-image: url(../images/bagb.svg);
+}
+
+.bagblue1 {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 45vw;
+    right: 2vw;
+    height: 15.8vw;
+    width: 11.111vw;
+    background-image: url(../images/bagblue.svg);
+}
+.blackzone {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 25vw;
+    
+    height: 15.8vw;
+    width: 30vw;
+  
+}
+.greenzone {
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 25vw;
+left: 35vw;
+    height: 15.8vw;
+    width: 30vw;
+   
+}
+.bluezone{
+
+background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 25vw;
+  right: 0vw;
+    height: 15.8vw;
+    width: 26vw;
+   
+
+}

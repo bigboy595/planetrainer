@@ -69,9 +69,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const slider2Value = parseInt(this.value, 10);
 
         // Логика для изменения свойства `left`
-        // При значении 0: left = -14vw
-        // При значении 100: left = -1.7vw
         const newLeft = -14 + (slider2Value / 100) * 12.3; // Интерполяция от -14vw до -1.7vw
         screen1Plashka.style.left = `${newLeft}vw`;
+    });
+
+    // Шестой блок кода для перетаскивания элементов
+    const bags = document.querySelectorAll('.bags div');
+    const blackZone = document.querySelector('.blackzone');
+    const greenZone = document.querySelector('.greenzone');
+    const blueZone = document.querySelector('.bluezone');
+
+    // Обработчик начала перетаскивания
+    bags.forEach(bag => {
+        bag.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('text/plain', e.target.className); // Сохраняем класс элемента
+        });
+    });
+
+    // Обработчик для зон (разрешаем drop)
+    [blackZone, greenZone, blueZone].forEach(zone => {
+        zone.addEventListener('dragover', function (e) {
+            e.preventDefault(); // Разрешаем drop
+        });
+
+        zone.addEventListener('drop', function (e) {
+            e.preventDefault();
+            const bagClass = e.dataTransfer.getData('text/plain'); // Получаем класс перетаскиваемого элемента
+            const bagElement = document.querySelector(`.${bagClass}`); // Находим элемент
+
+            // Проверяем, в какую зону попал элемент
+            if (
+                (zone.classList.contains('blackzone') && bagClass.includes('bagblack')) ||
+                (zone.classList.contains('greenzone') && bagClass.includes('baggreen')) ||
+                (zone.classList.contains('bluezone') && bagClass.includes('bagblue'))
+            ) {
+                // Если зона правильная, скрываем элемент и возвращаем через 2 секунды
+                bagElement.style.opacity = '0'; // Плавное исчезновение
+                setTimeout(() => {
+                    bagElement.style.opacity = '1'; // Плавное появление
+                }, 2000); // 2000 мс = 2 секунды
+            } else {
+                // Если зона неправильная, показываем предупреждение
+                alert('Неверная зона! Перетащите элемент в правильную зону.');
+            }
+        });
     });
 });

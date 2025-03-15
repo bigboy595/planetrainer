@@ -4,3 +4,15 @@
     font-style: normal;
     font-weight: 600;
 }
+@font-face {
+    font-family: 'Inter-ExtraBold';
+    src: url(../fonts/Inter-ExtraBold.otf) format('opentype');
+    font-style: normal;
+    font-weight: 800;
+}
+@font-face {
+    font-family: 'Radiotechnika';
+    src: url(../fonts/Radiotechnika.otf) format('opentype');
+    font-style: normal;
+    font-weight: 600;
+}
