@@ -19,89 +19,42 @@ slider.addEventListener('input', function() {
 
 
 
+    const slider1 = document.getElementById('slider1');
+        const columns = document.querySelector('.columns');
 
-document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.slider'); // Контейнер ползунка
-    const thumb = document.querySelector('.thumb');   // Бегунок
-    const inputRange = document.getElementById('slider'); // input range
+        slider1.addEventListener('input', function() {
+            // Получаем значение ползунка (от 0 до 100)
+            const slider1Value = slider1.value;
 
-    // Обработчик для input range
-    inputRange.addEventListener('input', function () {
-        const value = this.value;
-        const min = this.min;
-        const max = this.max;
+            // Преобразуем значение ползунка в диапазон для animation-duration
+            // Например, от 0.5s до 2s
+            const animationDuration = (100 - slider1Value) / 100 * 1.5 + 0.5;
 
-        // Вычисляем положение бегунка в процентах
-        const percent = ((value - min) / (max - min)) * 100;
+            // Применяем новое значение animation-duration к элементу .columns
+            columns.style.animationDuration = `${animationDuration}s`;
+        });
 
-        // Обновляем положение бегунка
-        thumb.style.left = `calc(${percent}% - ${thumb.offsetWidth / 2}px)`;
-    });
 
-    // Обработчик для перемещения бегунка мышью
-    thumb.addEventListener('mousedown', function (event) {
-        event.preventDefault(); // Предотвращаем выделение текста
 
-        const sliderRect = slider.getBoundingClientRect();
-        const thumbWidth = thumb.offsetWidth;
+        document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('slider3'); // Получаем ползунок
+    const screen = document.querySelector('.screen2fp'); // Получаем элемент, который будем двигать
 
-        // Функция для перемещения бегунка
-        function onMouseMove(event) {
-            let newLeft = event.clientX - sliderRect.left - thumbWidth / 2;
+    slider.addEventListener('input', function () {
+        const sliderValue = parseInt(this.value, 10); // Получаем значение ползунка (от 0 до 100)
 
-            // Ограничиваем движение бегунка в пределах ползунка
-            if (newLeft < 0) newLeft = 0;
-            if (newLeft > sliderRect.width - thumbWidth) newLeft = sliderRect.width - thumbWidth;
-
-            // Обновляем положение бегунка
-            thumb.style.left = `${newLeft}px`;
-
-            // Обновляем значение input range
-            const percent = (newLeft / (sliderRect.width - thumbWidth)) * 100;
-            inputRange.value = Math.round((percent / 100) * (inputRange.max - inputRange.min)) + Number(inputRange.min);
+        // Логика для изменения свойства `top`
+        if (sliderValue >= 50) {
+            // Если ползунок движется вправо (значение от 50 до 100)
+            const newTop = 1 + (sliderValue - 50) * (4 / 50); // Интерполяция от 1vw до 5vw
+            screen.style.top = `${newTop}vw`;
+        } else {
+            // Если ползунок движется влево (значение от 0 до 50)
+            const newTop = 1 - (50 - sliderValue) * (4 / 50); // Интерполяция от 1vw до -3vw
+            screen.style.top = `${newTop}vw`;
         }
-
-        // Функция для завершения перемещения
-        function onMouseUp() {
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp);
-        }
-
-        // Добавляем обработчики событий
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-    });
-
-    // Предотвращаем стандартное поведение перетаскивания
-    thumb.addEventListener('dragstart', function () {
-        return false;
     });
 });
-
-// Ждем, пока загрузится DOM
-        document.addEventListener('DOMContentLoaded', function () {
-            // Находим кнопку и div
-            const button = document.getElementById('colorButton');
-            const targetDiv = document.getElementById('targetDiv');
-
-            // Проверяем, что элементы найдены
-            if (!button || !targetDiv) {
-                console.error('Не удалось найти кнопку или div');
-                return;
-            }
-
-            // Обработчик клика по кнопке
-            button.addEventListener('click', function () {
-                // Переключаем класс у div
-                if (targetDiv.classList.contains('default-color')) {
-                    targetDiv.classList.remove('default-color');
-                    targetDiv.classList.add('new-color');
-                } else {
-                    targetDiv.classList.remove('new-color');
-                    targetDiv.classList.add('default-color');
-                }
-            });
-        });
 
 
 

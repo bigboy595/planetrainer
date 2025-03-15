@@ -1,0 +1,9 @@
+@keyframes columns {
+    0% {
+        left: 1vw;
+    }
+
+    100% {
+        left: -12vw;
+    }
+}
