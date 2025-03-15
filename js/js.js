@@ -1,76 +1,168 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Первый блок кода для управления цифрами
-    const slider = document.getElementById('slider');
-    const value1 = document.getElementById('value1');
-    const value2 = document.getElementById('value2');
-    const value3 = document.getElementById('value3');
-    const value4 = document.getElementById('value4');
+    // Функция для плавного изменения значения ползунка от min до max и обратно
+    function animateSlider(slider, duration, min, max, callback) {
+        let startTime = null;
+        let isTouched = false; // Флаг для отслеживания, тронул ли пользователь ползунок
+        let animationFrameId = null; // ID текущего кадра анимации
 
-    slider.addEventListener('input', function() {
-        const sliderValue = parseInt(this.value, 10);
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const percent = (progress / duration) * 100; // Процент завершения анимации
 
-        // Логика для увеличения цифр
-        value1.textContent = sliderValue; // Первая цифра равна значению ползунка
-        value2.textContent = sliderValue * 2; // Вторая цифра в 2 раза больше
-        value3.textContent = sliderValue + 5; // Третья цифра на 5 больше
-        value4.textContent = sliderValue * 0.5; // Четвертая цифра в половину от значения
-    });
+            if (!isTouched) { // Проверяем, не тронул ли пользователь ползунок
+                if (percent <= 50) {
+                    // Увеличиваем значение от min до max
+                    slider.value = min + (percent / 50) * (max - min);
+                } else {
+                    // Уменьшаем значение от max до min
+                    slider.value = max - ((percent - 50) / 50) * (max - min);
+                }
 
-    // Второй блок кода для управления анимацией
-    const slider1 = document.getElementById('slider1');
-    const columns = document.querySelector('.columns');
+                // Вызываем callback для обновления связанных элементов
+                if (callback) callback(slider.value);
 
-    slider1.addEventListener('input', function() {
-        const slider1Value = parseInt(this.value, 10);
+                if (percent < 100) {
+                    animationFrameId = requestAnimationFrame(step); // Продолжаем анимацию
+                } else {
+                    startTime = null; // Сбрасываем время для нового цикла
+                    animationFrameId = requestAnimationFrame(step); // Начинаем заново
+                }
+            }
+            // Если isTouched = true, анимация прекращается
+        }
 
-        // Преобразуем значение ползунка в диапазон для animation-duration
-        const animationDuration = (100 - slider1Value) / 100 * 1.5 + 0.5;
+        // Запускаем анимацию
+        animationFrameId = requestAnimationFrame(step);
 
-        // Применяем новое значение animation-duration к элементу .columns
+        // Останавливаем анимацию, если пользователь трогает ползунок
+        slider.addEventListener('mousedown', function () {
+            isTouched = true; // Останавливаем анимацию
+            cancelAnimationFrame(animationFrameId); // Отменяем текущий кадр анимации
+        });
+
+        slider.addEventListener('touchstart', function () {
+            isTouched = true; // Останавливаем анимацию для сенсорных устройств
+            cancelAnimationFrame(animationFrameId); // Отменяем текущий кадр анимации
+        });
+
+        // Возобновляем анимацию, когда пользователь отпускает ползунок
+        slider.addEventListener('mouseup', function () {
+            isTouched = false; // Сбрасываем флаг
+            startTime = null; // Сбрасываем время для нового цикла
+            animationFrameId = requestAnimationFrame(step); // Запускаем анимацию снова
+        });
+
+        slider.addEventListener('touchend', function () {
+            isTouched = false; // Сбрасываем флаг
+            startTime = null; // Сбрасываем время для нового цикла
+            animationFrameId = requestAnimationFrame(step); // Запускаем анимацию снова
+        });
+    }
+
+    // Функция для обновления цифр
+    function updateNumbers(value) {
+        const value1 = document.getElementById('value1');
+        const value2 = document.getElementById('value2');
+        const value3 = document.getElementById('value3');
+        const value4 = document.getElementById('value4');
+
+        value1.textContent = value; // Первая цифра равна значению ползунка
+        value2.textContent = value * 2; // Вторая цифра в 2 раза больше
+        value3.textContent = value + 5; // Третья цифра на 5 больше
+        value4.textContent = value * 0.5; // Четвертая цифра в половину от значения
+    }
+
+    // Функция для обновления анимации .columns
+    function updateColumnsAnimation(value) {
+        const columns = document.querySelector('.columns');
+        const animationDuration = (100 - value) / 100 * 1.5 + 0.5;
         columns.style.animationDuration = `${animationDuration}s`;
+    }
+
+    // Функция для обновления позиции .screen2fp
+    function updateScreen2Fp(value) {
+        const screen2 = document.querySelector('.screen2fp');
+        let newTop;
+        if (value >= 50) {
+            newTop = 1 + (value - 50) * (4 / 50); // Интерполяция от 1vw до 5vw
+        } else {
+            newTop = 1 - (50 - value) * (4 / 50); // Интерполяция от 1vw до -3vw
+        }
+        screen2.style.top = `${newTop}vw`;
+    }
+
+    // Функция для обновления позиции .screen3plashka
+    function updateScreen3Plashka(value) {
+        const screen3Plashka = document.querySelector('.screen3plashka');
+        const newTop = -9 + (value / 100) * 8.5; // Интерполяция от -9vw до -0.5vw
+        screen3Plashka.style.top = `${newTop}vw`;
+    }
+
+    // Функция для обновления позиции .screen1plashka
+    function updateScreen1Plashka(value) {
+        const screen1Plashka = document.querySelector('.screen1plashka');
+        const newLeft = -14 + (value / 100) * 12.3; // Интерполяция от -14vw до -1.7vw
+        screen1Plashka.style.left = `${newLeft}vw`;
+    }
+
+    // Центральный ползунок (slider) с анимацией
+    const centralSlider = document.getElementById('slider');
+    animateSlider(centralSlider, 3000, 100, 600, (value) => {
+        updateNumbers(value); // Обновляем только цифры
     });
 
-    // Третий блок кода для управления элементом .screen2fp
-    const slider3 = document.getElementById('slider3');
-    const screen2 = document.querySelector('.screen2fp');
+    // Обработчик для ручного управления центральным ползунком
+    centralSlider.addEventListener('input', function () {
+        const sliderValue = parseInt(this.value, 10);
+        updateNumbers(sliderValue); // Обновляем цифры
+    });
 
-    slider3.addEventListener('input', function() {
-        const slider3Value = parseInt(this.value, 10);
-
-        // Логика для изменения свойства `top`
-        if (slider3Value >= 50) {
-            // Если ползунок движется вправо (значение от 50 до 100)
-            const newTop = 1 + (slider3Value - 50) * (4 / 50); // Интерполяция от 1vw до 5vw
-            screen2.style.top = `${newTop}vw`;
-        } else {
-            // Если ползунок движется влево (значение от 0 до 50)
-            const newTop = 1 - (50 - slider3Value) * (4 / 50); // Интерполяция от 1vw до -3vw
-            screen2.style.top = `${newTop}vw`;
+    // Запускаем анимацию для остальных ползунков
+    const sliders = document.querySelectorAll('input[type="range"]:not(#slider)');
+    sliders.forEach(slider => {
+        if (!slider.hasAttribute('data-touched')) { // Проверяем, трогал ли пользователь ползунок
+            animateSlider(slider, 3000, 0, 100, (value) => {
+                // Обновляем связанные элементы для каждого ползунка
+                switch (slider.id) {
+                    case 'slider1':
+                        updateColumnsAnimation(value);
+                        break;
+                    case 'slider2':
+                        updateScreen1Plashka(value);
+                        break;
+                    case 'slider3':
+                        updateScreen2Fp(value);
+                        break;
+                    case 'slider4':
+                        updateScreen3Plashka(value);
+                        break;
+                }
+            });
         }
     });
 
-    // Четвертый блок кода для управления элементом .screen3plashka
-    const slider4 = document.getElementById('slider4');
-    const screen3Plashka = document.querySelector('.screen3plashka');
+    // Обработчики для ручного управления остальными ползунками
+    sliders.forEach(slider => {
+        slider.addEventListener('input', function () {
+            const value = parseInt(this.value, 10);
 
-    slider4.addEventListener('input', function() {
-        const slider4Value = parseInt(this.value, 10);
-
-        // Логика для изменения свойства `top`
-        const newTop = -9 + (slider4Value / 100) * 8.5; // Интерполяция от -9vw до -0.5vw
-        screen3Plashka.style.top = `${newTop}vw`;
-    });
-
-    // Пятый блок кода для управления элементом .screen1plashka
-    const slider2 = document.getElementById('slider2');
-    const screen1Plashka = document.querySelector('.screen1plashka');
-
-    slider2.addEventListener('input', function() {
-        const slider2Value = parseInt(this.value, 10);
-
-        // Логика для изменения свойства `left`
-        const newLeft = -14 + (slider2Value / 100) * 12.3; // Интерполяция от -14vw до -1.7vw
-        screen1Plashka.style.left = `${newLeft}vw`;
+            // Обновляем связанные элементы для каждого ползунка
+            switch (slider.id) {
+                case 'slider1':
+                    updateColumnsAnimation(value);
+                    break;
+                case 'slider2':
+                    updateScreen1Plashka(value);
+                    break;
+                case 'slider3':
+                    updateScreen2Fp(value);
+                    break;
+                case 'slider4':
+                    updateScreen3Plashka(value);
+                    break;
+            }
+        });
     });
 
     // Шестой блок кода для перетаскивания элементов
