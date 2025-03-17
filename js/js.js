@@ -227,4 +227,47 @@ submitButton.addEventListener('click', function (e) {
         alert('Пожалуйста, введите текст!'); // Если поле пустое
     }
 });
+
+
+// Получаем элементы
+const aquaElement = document.querySelector('.screencenterstrowaqua');
+const pinkElement = document.querySelector('.screencenterstrowpink');
+const orangeElement = document.querySelector('.screencenterstroworange');
+const whiteElement = document.querySelector('.screencenterstrowwhite');
+
+const aquaButton = document.querySelector('.aqua-button');
+const pinkButton = document.querySelector('.pink-button');
+const orangeButton = document.querySelector('.orange-button');
+const whiteButton = document.querySelector('.white-button');
+
+// Функция для сброса z-index всех элементов
+function resetZIndex() {
+    aquaElement.style.zIndex = 1;
+    pinkElement.style.zIndex = 1;
+    orangeElement.style.zIndex = 1;
+    whiteElement.style.zIndex = 1;
+}
+
+// Обработчики для кнопок
+aquaButton.addEventListener('click', function () {
+    resetZIndex();
+    aquaElement.style.zIndex = 10; // Выводим циановый элемент на передний план
+});
+
+pinkButton.addEventListener('click', function () {
+    resetZIndex();
+    pinkElement.style.zIndex = 10; // Выводим розовый элемент на передний план
+});
+
+orangeButton.addEventListener('click', function () {
+    resetZIndex();
+    orangeElement.style.zIndex = 10; // Выводим оранжевый элемент на передний план
+});
+
+whiteButton.addEventListener('click', function () {
+    resetZIndex();
+    whiteElement.style.zIndex = 10; // Выводим белый элемент на передний план
+});
+
+
 });
