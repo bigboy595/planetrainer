@@ -6,7 +6,7 @@
 .section-1 {
     background-color: #ABE3FF;
     height: 98.681vw;
-    width: 100%;
+    width: 100vw;
 position: relative;
 
     
@@ -18,7 +18,7 @@ position: relative;
 
 .clouds1 {
     background-image: url(../images/clouds.svg);
-    width: 100%;
+    width: 100vw;
     height: 47.917vw;
     transform: scale(1);
     background-size: contain;
@@ -32,9 +32,81 @@ position: relative;
     animation-iteration-count: infinite;
     animation-duration: 4s;
 }
+.metaltxt:hover{
+    color: #1AE4FF;
+    transition: 0.2s ;
+}
+#value1:hover {
+    color: #1AE4FF;
+    transition: 0.2s;
+}
+#value2:hover {
+    color: #1AE4FF;
+    transition: 0.2s;
+}
+#value3:hover {
+    color: #1AE4FF;
+    transition: 0.2s;
+}
+#value4:hover {
+    color: #1AE4FF;
+    transition: 0.2s;
+}
+
+.spb:hover {
+    color: #676767;
+    transition: 0.2s;
+}
+.msk:hover {
+    color: #04e121;
+    transition: 0.2s;
+}
+.saratov:hover {
+    color: #00f2ff;
+    transition: 0.2s;
+}
+.txtbagage:hover {
+    color: #1AE4FF;
+    transition: 0.2s;
+}
+.txtqeustion:hover {
+    color: #064404;
+    transition: 0.2s;
+}
+.input-field:hover {
+    color: #08c72b;
+    transition: 0.2s;
+}
+.txtname:hover {
+    color: #355459;
+    transition: 0.2s;
+}
+.txtgroup:hover {
+    color: #355459;
+    transition: 0.2s;
+}
+.screen2:hover {
+    background-color: #01f0e4;
+    transition: 0.2s;
+}
+.screen3:hover {
+    background-color: #ffffff;
+    transition: 0.2s;
+}
+.screen1:hover {
+    background-color: #c3ff5d;
+    transition: 0.2s;
+}
+.screen:hover {
+    background-color: #00acc3;
+    transition: 0.2s;
+}
+
+
+
 .metal{
 background-image: url(../images/metal.svg);
-    width: 100%;
+    width: 100vw;
     height: 88.194vw;
     background-size: contain;
     /* Поддержка размеров фона */
@@ -117,7 +189,7 @@ left: 45vw;
 .section-2 {
     background-color: #444444;
     height: 65.927vw;
-    width: 100%;
+    width: 100vw;
     position: relative;
     overflow: hidden;
 }
@@ -440,7 +512,7 @@ background-image: url(../images/screen2bg.svg);
     background-size: contain;
     /* Поддержка размеров фона */
     background-repeat: no-repeat;
-    right: 42vw;
+    right: 43vw;
     position: absolute;
     top: 46.38vw;
     overflow: hidden;
@@ -542,7 +614,7 @@ background-image: url(../images/screen2bg.svg);
 .section-3{
     top: -5vw;
         height: 75vw;
-        width: 100%;
+        width: 100vw;
         position: relative;
         overflow: hidden;
     
@@ -552,7 +624,7 @@ background-image: url(../images/screen2bg.svg);
         /* Поддержка размеров фона */
         background-repeat: no-repeat;
         height: 79.931vw;
-            width: 100%;
+            width: 100vw;
             background-image: url(../images/s3bg.svg);
 
     }
@@ -944,7 +1016,7 @@ background-size: contain;
     width: 100%;
     height: 70%;
     background-color: #ffffff;
-   
+   border: none;
     border-radius: 0.694vw;
     padding: 1vw;
     font-family: "Inter-SemiBold", sans-serif;
@@ -1001,16 +1073,6 @@ color: #ABE3FF;
 
 }
 /* Стили для контейнера кнопок */
-.buttons-container {
-    position: absolute;
-   
-    display: flex;
-        background-size: contain;
-            /* Поддержка размеров фона */
-            background-repeat: no-repeat;
-  
-    /* Расстояние между кнопками */
-}
 
 /* Общие стили для кнопок */
 .color-button {
@@ -1023,9 +1085,7 @@ color: #ABE3FF;
     transition: opacity 0.3s ease;
     position: absolute;
     top: 46.389vw;
-        background-size: contain;
-            /* Поддержка размеров фона */
-            background-repeat: no-repeat;
+       
     
     /* Абсолютное позиционирование */
 }
@@ -1056,4 +1116,25 @@ color: #ABE3FF;
 /* Эффект при наведении */
 .color-button:hover {
     opacity: 0.8;
+}
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.baggreen,
+.bagblue,
+.bagblack,
+.baggreen1,
+.bagblue1,
+.bagblack1 {
+    animation: bounce 1s infinite;
+    cursor: grab;
 }
