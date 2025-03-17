@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     // Функция для плавного изменения значения ползунка от min до max и обратно
     function animateSlider(slider, duration, min, max, callback) {
         let startTime = null;
@@ -199,11 +200,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 bagElement.style.opacity = '0'; // Плавное исчезновение
                 setTimeout(() => {
                     bagElement.style.opacity = '1'; // Плавное появление
-                }, 2000); // 2000 мс = 2 секунды
+                }, 6000); // 2000 мс = 2 секунды
             } else {
                 // Если зона неправильная, показываем предупреждение
                 alert('Неверная зона! Перетащите элемент в правильную зону.');
             }
         });
     });
+
+
+
+// Обработчик для формы
+const formContainer = document.querySelector('.form-container');
+const inputField = document.querySelector('.input-field');
+const submitButton = document.querySelector('.submit-button');
+
+submitButton.addEventListener('click', function (e) {
+    e.preventDefault(); // Предотвращаем реальную отправку формы
+
+    const text = inputField.value.trim();
+
+    if (text) {
+        alert(`Текст "${text}" успешно "отправлен"!`); // Имитация отправки
+        inputField.value = ''; // Очищаем поле ввода
+    } else {
+        alert('Пожалуйста, введите текст!'); // Если поле пустое
+    }
+});
 });
