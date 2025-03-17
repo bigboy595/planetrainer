@@ -30,7 +30,7 @@ position: relative;
     animation: clouds1;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
-    animation-duration: 6s;
+    animation-duration: 4s;
 }
 .metal{
 background-image: url(../images/metal.svg);
@@ -51,16 +51,69 @@ font-family: "Radiotechnika";
   top: 10.278vw;
   left: 17.569vw;
  }
- .sun{background-image: url(../images/sun1.png);
+ .sun{background-image: url(../images/sun1.svg);
     width: 53.889vw;
     height:53.889vw;
     background-size: contain;
     /* Поддержка размеров фона */
     background-repeat: no-repeat;
-   right: -1vw;
+   right: -20vw;
    top: 0vw;
     position: absolute;
 }
+
+
+.baseforwheel{
+    background-image: url(../images/baseforwheel.svg);
+    width: 8vw;
+    height: 16.319vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+left: 45vw;
+    bottom: -2vw;
+    position: absolute;
+
+}
+.wheel {
+    background-image: url(../images/wheel.svg);
+    width: 37.703vw;
+    height: 23.567vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+    left: 30.5vw;
+    bottom: 9.4vw;
+    position: absolute;
+
+}
+.left {
+    
+    width: 13vw;
+    height: 18vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+    left: 30vw;
+    bottom: 15vw;
+    position: absolute;
+    cursor: pointer;
+
+}
+.right {
+   
+    width: 13vw;
+    height: 18vw;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+    right: 30vw;
+    bottom: 15vw;
+    position: absolute;
+    cursor: pointer;
+
+}
+
 .section-2 {
     background-color: #444444;
     height: 65.927vw;
@@ -69,7 +122,7 @@ font-family: "Radiotechnika";
     overflow: hidden;
 }
 .screens{
-    background-image: url(../images/screens.svg);
+    background-image: url(../images/screens1.svg);
         width: 100vw;
         height: 32.153vw;
         background-size: contain;
@@ -80,6 +133,7 @@ font-family: "Radiotechnika";
         position: absolute;
 
 }
+
 .slider {
     width: 15vw;
 height: 1.528vw;

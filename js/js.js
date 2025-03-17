@@ -270,4 +270,39 @@ whiteButton.addEventListener('click', function () {
 });
 
 
+
+// Получаем элементы
+const leftButton = document.querySelector('.left');
+const rightButton = document.querySelector('.right');
+const wheel = document.querySelector('.wheel');
+const clouds1 = document.querySelector('.clouds1');
+const sun = document.querySelector('.sun');
+
+// Функция для поворота элемента
+function rotateElement(element, degrees) {
+    element.style.transition = 'transform 0.5s ease'; // Плавная анимация
+    element.style.transform = `rotate(${degrees}deg)`; // Поворот
+
+    // Возвращаем элемент в исходное положение через 2 секунды
+    setTimeout(() => {
+        element.style.transition = 'transform 0.5s ease'; // Плавная анимация
+        element.style.transform = 'rotate(0deg)'; // Возвращаем в исходное положение
+    }, 2000); // 2000 мс = 2 секунды
+}
+
+// Обработчики для кнопок
+leftButton.addEventListener('click', function () {
+    rotateElement(wheel, -30); // Поворачиваем wheel на 30 градусов влево (старая логика)
+    rotateElement(clouds1, 30); // Поворачиваем clouds1 на 30 градусов вправо (новая логика)
+    rotateElement(sun, 30); // Поворачиваем sun на 30 градусов вправо (новая логика)
+});
+
+rightButton.addEventListener('click', function () {
+    rotateElement(wheel, 30); // Поворачиваем wheel на 30 градусов вправо (старая логика)
+    rotateElement(clouds1, -30); // Поворачиваем clouds1 на 30 градусов влево (новая логика)
+    rotateElement(sun, -30); // Поворачиваем sun на 30 градусов влево (новая логика)
+});
+
+
+
 });
