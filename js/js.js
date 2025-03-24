@@ -1,5 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
     
+
+
+
+
+const images = document.querySelectorAll('img[data-src]');
+    const loadImage = (img) => {
+        img.src = img.dataset.src;
+        img.onload = () => {
+            img.classList.add('lazyloaded');
+        };
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                loadImage(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    images.forEach((img) => observer.observe(img))
+
+
+
+
+
+
     // Функция для плавного изменения значения ползунка от min до max и обратно
     function animateSlider(slider, duration, min, max, callback) {
         let startTime = null;

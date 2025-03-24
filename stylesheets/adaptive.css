@@ -1,0 +1,60 @@
+@media screen and (max-width: 768px) {
+
+.div1{
+    transform: scale(1.4);
+   
+}
+.slider3{
+    left: 57vw;
+    height: 2vw;
+}
+.slider2 {
+    right: 57vw;
+    height: 2vw;
+}
+.slider1 {
+    
+    height: 2vw;
+left: 67vw;
+}
+.slider {
+    right: 67vw;
+    height: 2vw;
+}
+.slider-container{
+    height: 2vw;
+}
+.slidercenter {
+    height: 2vw;
+}
+.screen3{
+    transform: scale(1.05);
+    left: 67vw;
+}
+.screen2 {
+    transform: scale(1.05);
+    right: 67vw;
+}
+.screen1 {
+    transform: scale(1.05);
+    left: 67vw;
+}
+.screen {
+    transform: scale(1.05);
+    right: 67vw;
+}
+.section-1{
+    height: 150.26vw;
+}
+.div2{
+    
+    
+    position: relative;
+    top: 200vw;
+}
+.section-2{
+    top: 200vw;
+}
+
+
+}

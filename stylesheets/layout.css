@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0 auto;
 }
+
 .section-1 {
     background-color: #ABE3FF;
     height: 98.681vw;
@@ -17,7 +18,7 @@ position: relative;
 }
 
 .clouds1 {
-    background-image: url(../images/clouds.svg);
+    background-image: url(../images/clouds.webp);
     width: 100vw;
     height: 47.917vw;
     transform: scale(1);
@@ -105,7 +106,7 @@ position: relative;
 
 
 .metal{
-background-image: url(../images/metal.svg);
+background-image: url(../images/metal.webp);
     width: 100vw;
     height: 88.194vw;
     background-size: contain;
@@ -123,7 +124,7 @@ font-family: "Radiotechnika";
   top: 10.278vw;
   left: 17.569vw;
  }
- .sun{background-image: url(../images/sun1.svg);
+ .sun{background-image: url(../images/sun);
     width: 53.889vw;
     height:53.889vw;
     background-size: contain;
@@ -194,7 +195,7 @@ left: 45vw;
     overflow: hidden;
 }
 .screens{
-    background-image: url(../images/screens1.svg);
+    background-image: url(../images/screens.svg);
         width: 100vw;
         height: 32.153vw;
         background-size: contain;
@@ -318,37 +319,8 @@ transform: rotate(90deg);
     right: 18vw;
     transform: rotate(90deg);
 }
-.slidercenter{
-width: 37.075vw;
-    height: 1.528vw;
-    background-color: #4B4B4B;
-    background-size: contain;
-    /* Поддержка размеров фона */
-    background-repeat: no-repeat;
 
 
-    position: absolute;
-    border-radius: 1.033vw;
-
-    top: 40.6vw;
-    left: 31.458vw;
-    
-}
-.thumbcenter{
-background-size: contain;
-    /* Поддержка размеров фона */
-    background-repeat: no-repeat;
-    width: 1.389vw;
-    height: 3.75vw;
-    background-color: #1AE4FF;
-    background-size: contain;
-    /* Поддержка размеров фона */
-    background-repeat: no-repeat;
-    top: -1vw;
-
-    position: absolute;
-    border-radius: 0.131vw;
-}
  .screen {
      background-color: #171717;
      border: 0.83vw solid #8D8D8D;
@@ -373,7 +345,7 @@ background-size: contain;
             left: 1vw;
             height: 19.585vw;
             width: 24.346vw;
-            background-image: url(../images/screencolumns.svg);
+            background-image: url(../images/screencolumns.webp);
             animation: columns;
                 animation-timing-function: linear;
                 animation-iteration-count: infinite;
@@ -404,7 +376,7 @@ background-size: contain;
      overflow: hidden;
  }
  .screen1plashka{
-background-image: url(../images/screen1plashka.svg);
+background-image: url(../images/screen1plashka.webp);
     width: 28.819vw;
     height: 14.249vw;
     background-size: contain;
@@ -491,7 +463,7 @@ background-image: url(../images/screen2bg.svg);
 
 }
 .screen3plashka{
-    background-image: url(../images/screen3plashka.svg);
+    background-image: url(../images/screen3plashka.webp);
         width: 11.166vw;
         height: 20.833vw;
         background-size: contain;
@@ -639,7 +611,7 @@ background-image: url(../images/screen2bg.svg);
 .slider-container {
     position: relative;
     width: 37.075vw;
-    height: 1.528vw;
+    height: 2vw;
     background-color: #4B4B4B;
     border-radius: 1.033vw;
     top: 41vw;
@@ -1137,4 +1109,16 @@ color: #ABE3FF;
 .bagblack1 {
     animation: bounce 1s infinite;
     cursor: grab;
+}
+
+
+
+
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.lazyloaded {
+    opacity: 1;
 }
