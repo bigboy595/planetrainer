@@ -15,10 +15,10 @@
 .slider1 {
     
     height: 2vw;
-left: 67vw;
+left: 63vw;
 }
 .slider {
-    right: 67vw;
+    right: 63vw;
     height: 2vw;
 }
 .slider-container{
@@ -37,14 +37,14 @@ left: 67vw;
 }
 .screen1 {
     transform: scale(1.05);
-    left: 67vw;
+    left: 63vw;
 }
 .screen {
     transform: scale(1.05);
-    right: 67vw;
+    right: 63vw;
 }
 .section-1{
-    height: 150.26vw;
+    height: 140vw;
 }
 .div2{
     
@@ -55,6 +55,17 @@ left: 67vw;
 .section-2{
     top: 200vw;
 }
+.left{
+ 
+    height: 15vw;
+    left: 32vw;
+}
+.right {
+
+    height: 15vw;
+    right: 32vw;
+}
+
 
 
 }
