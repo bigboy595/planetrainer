@@ -152,6 +152,37 @@ left: 63vw;
     width: 28vw;
 }
 
+.section-3{
+top: -10vw;
+    height: 157.743vw;
+}
+.s3bg{
+    height: 157.743vw;
+    background-image: url(../images/s3bgmobile.svg);
+    left: 0vw;
+    width: 100vw;
+    position: absolute;
+}
+.pengque{
+    transform: scale(2);
+    top: 60vw;
+    right: -10vw;
+}
 
-
+.txtqeustionforma{
+    transform: scale(2);
+left: 0vw;
+top: 40vw;
+}
+.form-container{
+    transform: scale(2);
+    top: 65vw;
+}
+.namegroup{
+    transform: scale(1.5);
+    top: 35vw;
+    left: 25vw;
+    position: absolute;
+    width: 100vw;
+}
 }
