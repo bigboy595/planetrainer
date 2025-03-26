@@ -2,12 +2,16 @@
 * {
     box-sizing: border-box;
     margin: 0 auto;
+    
 }
-
+body{
+    overflow-x: hidden;
+    width: 100vw;
+}
 .section-1 {
     background-color: #ABE3FF;
     height: 98.681vw;
-    width: 100vw;
+  
 position: relative;
 
     
@@ -16,7 +20,15 @@ position: relative;
         background-repeat: no-repeat;
         overflow: hidden;
 }
-
+.txtbagage1{
+        color: white;
+            font-family: "Radiotechnika";
+            font-size: 5.833vw;
+            position: absolute;
+            text-align: center;
+            right: 100vw;
+            top: 3vw;
+}
 .clouds1 {
     background-image: url(../images/clouds.webp);
     width: 100vw;

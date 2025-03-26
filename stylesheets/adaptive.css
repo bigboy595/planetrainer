@@ -44,16 +44,64 @@ left: 63vw;
     right: 63vw;
 }
 .section-1{
-    height: 140vw;
+    height: 139vw;
 }
 .div2{
     
     
     position: relative;
-    top: 200vw;
+    
+}
+.screens{
+ height: 60.761vw;
+ width: 100%;
+ top: 25vw;   
+ background-image: url(../images/screensmobile.svg);
 }
 .section-2{
-    top: 200vw;
+    height: 177.822vw;
+    
+}
+
+.t16{
+    font-size: 2.513vw;
+    top: 17.6vw;
+}
+.t17 {
+    font-size: 2.513vw;
+ left: 43vw;
+    top: 17.6vw;
+}
+.t18 {
+    font-size: 2.513vw;
+    top: 17.6vw;
+    left: 77vw;
+}
+.roll{
+    transform: scale(4);
+    top: 122vw;
+}
+.txtbagage1{
+    text-align: left;
+    font-size: 9.99vw;
+    left: 5vw;
+}
+.txtbagage {
+ display: none;
+}
+.msk{
+    font-size: 5.997vw;
+    left: 39vw;
+    top: 9vw;
+}
+.spb {
+    font-size: 5.997vw;
+    top: 9vw;
+}
+.saratov {
+    font-size: 5.997vw;
+    top: 9vw;
+    left: 71vw;
 }
 .left{
  
@@ -64,6 +112,44 @@ left: 63vw;
 
     height: 15vw;
     right: 32vw;
+}
+.bagblue{
+    left: 30vw;
+    top: 60vw;
+}
+.bagblack {
+    right: -34vw;
+    top: 60vw;
+}
+.baggreen1{
+    left: 45vw;
+        top: 60vw;
+}
+.bagblue1 {
+    left: 35vw;
+    
+}
+.bags{
+    transform: scale(2);
+}
+.greenzone{
+    
+    height: 38vw;
+    top: 48vw;
+    left: 37vw;
+}
+.blackzone {
+    height: 38vw;
+    top: 48vw;
+    left: 0vw;
+    width: 32vw;
+}
+.bluezone {
+   
+    height: 38vw;
+    top: 48vw;
+    right: 0vw;
+    width: 28vw;
 }
 
 
