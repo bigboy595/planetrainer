@@ -185,4 +185,33 @@ top: 40vw;
     position: absolute;
     width: 100vw;
 }
+.slider3{
+    display: flex;
+}
+.slider2 {
+    display: flex;
+}
+.slider1 {
+    display: flex;
+}
+.slider4 {
+    display: flex;
+}
+.slider-container{
+    display: flex;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3.389vw;
+    height: 3.75vw;
+    background-color: #1AE4FF;
+    border-radius: 1.131vw;
+    position: relative;
+    background-size: contain;
+    /* Поддержка размеров фона */
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
 }
