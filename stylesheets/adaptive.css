@@ -194,6 +194,9 @@ top: 40vw;
 .slider1 {
     display: flex;
 }
+.slider {
+    display: flex;
+}
 .slider4 {
     display: flex;
 }
